@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Happy Birthday</title>
+<style>
+*{
+  font-family: 'Phudu', sans-serif;
+}
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#ffb347,#ff7a18);
+  overflow:hidden;
+  font-family: 'Phudu', sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+.card{
+  background:rgba(255,255,255,0.15);
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  backdrop-filter:blur(8px);
+  box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+h1{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.photo{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:20px;
+  margin:15px 0 20px;
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+h2{
+  font-weight:normal;
+  margin-bottom:25px;
+}
+
+button{
+  padding:12px 24px;
+  border:none;
+  border-radius:25px;
+  background:#ff7a18;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#ff9a3c;
+}
+
+.letter-box{
+  margin-top:20px;
+  display:none;
+}
+
+textarea{
+  font-family: 'BT Beau Sans', sans-serif !important;
+  font-weight:500;
+  width:70vw;
+  height:45vh;
+  border-radius:15px;
+  border:none;
+  padding:20px;
+  resize:none;
+  font-size:20px;
+  overflow:hidden;
+}
+
+.heart{
+  position:absolute;
+  bottom:-20px;
+  color:orange;
+  font-size:20px;
+  animation:floatUp 4s linear forwards;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(1);opacity:1;}
+  100%{transform:translateY(-700px) scale(1.8);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <audio id="bgm" src="wedding-music.mp3" loop></audio>
+  <h1>🎂 Happy Birthday 🎂</h1>
+  <h2>Huy Việt – vợ iu của cam thảo</h2>
+  
+  <button onclick="openLetter()">Đọc thư 💌</button>
+
+  <div class="letter-box" id="letterBox">
+    <p>gửi bé barbie của cam</p>
+    <textarea>Chào em, người vợ duy nhất của cam. Bức thư này đến tay em đó là lúc vợ anh đã sang tủi 23, có tuổi rồi nên phải lo nghĩ nhiều, phải nhàu hơn, VÀ NHỚ MUA BẢO HIỂM, chúc em luôn hài trong những lúc bi, kiến thức và tài chính của em càng ngày càng phát trỉn
+
+anh tặng em một quả cam thơm, (anh đọc shopee thấy bảo mùi hơn hóa học), nếu e thấy nó hóa học thì đừng đốt nóa nhé, để vậy thì sẽ nhớ anh hahaha, nó thơm thì may
+
+hồi trước anh thấy em kể vì street công việc + đồ án nên e đã khóc và siu suy sụp (trong lúc xem bài của bà Phơng Mỹ Ci). Giờ anh về việt trì làm (điều a chưa bao giờ nghĩ tới), cũng không áp lực gì về tài chính, nhưng cái đầu anh thì k bao giờ thực sự thư zãn, a cũng chưa quen công việc, nhìu lúc nhìn lại những thứ mình làm thấy má ngu ngơ lun (btw những lần đầu tiên đều đáng nhớ). Lạ thật, lúc a puồn chuyện công việc anh lại nhớ đến lúc e kể công việc như L, đúng là earn more, pain more nhỉ em. Năm mới chả đặt mục tiêu gì xa xôi, chỉ là bọn mình chai lì hơn lúc trước là tốt rồi nhì hihi
+
+cảm ơn mối nhân duyên nhỏ bé này mang một người con gái đất tổ nên tình nghĩa với anh zoai nam định, iu em cả những lúc vui buồn, người vợ xinh nhất đời anh
+
+chúc em những điều tuyệt vời, cam thương!</textarea>
+  </div>
+</div>
+
+<script>
+function openLetter(){
+  const music = document.getElementById("bgm");
+  if(music){ music.play(); }
+  document.getElementById("letterBox").style.display="block";
+  document.querySelector("button").style.display="none";
+}
+
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤";
+  heart.style.left=Math.random()*window.innerWidth+"px";
+  heart.style.fontSize=(15+Math.random()*25)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},4000);
+},200);
+</script>
+
+</body>
+</html>
